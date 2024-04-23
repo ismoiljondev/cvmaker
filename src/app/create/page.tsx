@@ -264,8 +264,8 @@ const Create = () => {
 								</div>
 							</div>
 							<div
-								className={`h-0 overflow-hidden ease-in duration-1000 ${
-									add ? "h-auto ease-in duration-1000" : ""
+								className={`h-0 overflow-hidden duration-1000 ${
+									add ? "h-64" : ""
 								}`}
 							>
 								<div className="grid grid-cols-2 gap-4">
@@ -390,12 +390,17 @@ const Create = () => {
 							</div>
 							<Button
 								type="button"
-								className="w-full mt-4"
+								className="w-full mt-4 flex items-center gap-2"
 								onClick={() => setAdd((prev) => !prev)}
 							>
-								+
+								<span className="text-2xl">
+									{add ? "-" : "+"}
+								</span>
+								{"  "}
+								<span className="hover:border-b-2 hover:border-white border-b-2 border-transparent">
+									Additional information
+								</span>
 							</Button>
-							<Button>Submit</Button>
 						</form>
 					</Form>
 				</CardContent>
