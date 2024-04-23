@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import {
 	Card,
 	CardContent,
@@ -55,6 +55,7 @@ const formSchema = z.object({
 });
 
 const Create = () => {
+	const [add, setAdd] = useState(false);
 	const form = useForm<z.infer<typeof formSchema>>({
 		resolver: zodResolver(formSchema),
 		defaultValues: {
@@ -69,6 +70,8 @@ const Create = () => {
 	) => {
 		console.log(values);
 	};
+	console.log(add);
+
 	return (
 		<div className="max-w-[1440px] w-3/5 m-auto mt-32">
 			<Card>
@@ -260,7 +263,11 @@ const Create = () => {
 									/>
 								</div>
 							</div>
-							<div className="">
+							<div
+								className={`h-0 overflow-hidden ease-in duration-1000 ${
+									add ? "h-auto ease-in duration-1000" : ""
+								}`}
+							>
 								<div className="grid grid-cols-2 gap-4">
 									<FormField
 										name="date"
@@ -381,6 +388,13 @@ const Create = () => {
 									/>
 								</div>
 							</div>
+							<Button
+								type="button"
+								className="w-full mt-4"
+								onClick={() => setAdd((prev) => !prev)}
+							>
+								+
+							</Button>
 							<Button>Submit</Button>
 						</form>
 					</Form>
