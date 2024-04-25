@@ -26,12 +26,11 @@ import {
 	FormLabel,
 	FormMessage,
 } from "@/components/ui/form";
-import { date, z } from "zod";
+import { z } from "zod";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-
 const formSchema = z.object({
 	username: z
 		.string()
@@ -70,7 +69,6 @@ const Create = () => {
 	) => {
 		console.log(values);
 	};
-	console.log(add);
 
 	return (
 		<div className="max-w-[1440px] w-3/5 m-auto mt-32">
