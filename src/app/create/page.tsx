@@ -51,6 +51,7 @@ const formSchema = z.object({
 	nationality: z.string(),
 	linkedin: z.string(),
 	gender: z.string(),
+	city: z.string(),
 });
 
 const Create = () => {
@@ -244,7 +245,7 @@ const Create = () => {
 										)}
 									/>
 									<FormField
-										name="address"
+										name="city"
 										control={form.control}
 										render={({ field }) => (
 											<FormItem>
